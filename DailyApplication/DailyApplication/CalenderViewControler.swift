@@ -20,10 +20,26 @@ class CalenderViewControler : UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func touchSegmentedControl(_ sender: Any) {
+    @IBAction func segmentedControl(_ sender: Any) {
         
-        let segmentedTouchUtil = SegmentedTouchUtil()
-        segmentedTouchUtil.touchUtil(sender)
+        switch (sender as AnyObject).selectedSegmentIndex {
+        case 0://「Entry」が押されたとき
+            let calendarViewControler = self.storyboard!.instantiateViewController( withIdentifier: "EntriesViewControler") as! ViewController
+            self.present(calendarViewControler,animated: false,completion: nil)
+            
+        case 1://「Calendar」が押されたとき
+            
+            let calendarViewControler = self.storyboard!.instantiateViewController( withIdentifier: "CalenderViewControler") as! CalenderViewControler
+            self.present(calendarViewControler,animated: false,completion: nil)
+            
+        case 2://「」が押されたとき
+            
+            let calendarViewControler = self.storyboard!.instantiateViewController( withIdentifier: "DairyViewControler") as! DairyViewControler
+            self.present(calendarViewControler,animated: false,completion: nil)
+            
+        default:
+            print("該当なし")
+        }
     }
     
 }
