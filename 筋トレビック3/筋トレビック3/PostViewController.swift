@@ -19,5 +19,26 @@ class PostViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    /// segmentationタブクリックイベント
+    ///
+    /// - Parameter sender:
+    @IBAction func chengeView(_ sender: Any) {
+        
+        switch (sender as AnyObject).selectedSegmentIndex {
+            
+        case 0:
+            let calendarViewControler = self.storyboard!.instantiateViewController( withIdentifier: "ViewController") as! ViewController
+            self.present(calendarViewControler,animated: false,completion: nil)
+            
+        default :
+            
+            let calendarViewControler = self.storyboard!.instantiateViewController( withIdentifier: "PostViewController") as! PostViewController
+            self.present(calendarViewControler,animated: false,completion: nil)
+        }
+
+    }
+    
 
 }
