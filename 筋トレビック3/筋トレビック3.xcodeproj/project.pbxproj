@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19295DC81E10120700963E5B /* DateToStringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19295DC71E10120700963E5B /* DateToStringUtil.swift */; };
 		1995B7A71E0E2F4C0075D7F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995B7A61E0E2F4C0075D7F3 /* AppDelegate.swift */; };
 		1995B7A91E0E2F4C0075D7F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995B7A81E0E2F4C0075D7F3 /* ViewController.swift */; };
 		1995B7AC1E0E2F4C0075D7F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1995B7AA1E0E2F4C0075D7F3 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19295DC71E10120700963E5B /* DateToStringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateToStringUtil.swift; sourceTree = "<group>"; };
 		1995B7A31E0E2F4C0075D7F3 /* 筋トレビック3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "筋トレビック3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1995B7A61E0E2F4C0075D7F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1995B7A81E0E2F4C0075D7F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,10 +80,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1995B79A1E0E2F4C0075D7F3 = {
+		19295DC31E1010D600963E5B /* root */ = {
 			isa = PBXGroup;
 			children = (
 				1995B7A51E0E2F4C0075D7F3 /* 筋トレビック3 */,
+			);
+			name = root;
+			sourceTree = "<group>";
+		};
+		19295DC41E10112600963E5B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1995B7D71E0EBF780075D7F3 /* PostViewController.swift */,
+				1995B7A81E0E2F4C0075D7F3 /* ViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		19295DC51E10116400963E5B /* storyborad */ = {
+			isa = PBXGroup;
+			children = (
+				1995B7AA1E0E2F4C0075D7F3 /* Main.storyboard */,
+				1995B7B21E0E2F4C0075D7F3 /* LaunchScreen.storyboard */,
+			);
+			name = storyborad;
+			sourceTree = "<group>";
+		};
+		19295DC61E10119700963E5B /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				19295DC71E10120700963E5B /* DateToStringUtil.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		1995B79A1E0E2F4C0075D7F3 = {
+			isa = PBXGroup;
+			children = (
+				19295DC31E1010D600963E5B /* root */,
 				1995B7BD1E0E2F4C0075D7F3 /* 筋トレビック3Tests */,
 				1995B7C81E0E2F4D0075D7F3 /* 筋トレビック3UITests */,
 				1995B7A41E0E2F4C0075D7F3 /* Products */,
@@ -101,14 +137,13 @@
 		1995B7A51E0E2F4C0075D7F3 /* 筋トレビック3 */ = {
 			isa = PBXGroup;
 			children = (
+				19295DC61E10119700963E5B /* Util */,
+				19295DC51E10116400963E5B /* storyborad */,
+				19295DC41E10112600963E5B /* ViewController */,
 				1995B7A61E0E2F4C0075D7F3 /* AppDelegate.swift */,
-				1995B7A81E0E2F4C0075D7F3 /* ViewController.swift */,
-				1995B7AA1E0E2F4C0075D7F3 /* Main.storyboard */,
 				1995B7B01E0E2F4C0075D7F3 /* Assets.xcassets */,
-				1995B7B21E0E2F4C0075D7F3 /* LaunchScreen.storyboard */,
 				1995B7B51E0E2F4C0075D7F3 /* Info.plist */,
 				1995B7AD1E0E2F4C0075D7F3 /* _______3.xcdatamodeld */,
-				1995B7D71E0EBF780075D7F3 /* PostViewController.swift */,
 			);
 			path = "筋トレビック3";
 			sourceTree = "<group>";
@@ -272,6 +307,7 @@
 				1995B7A91E0E2F4C0075D7F3 /* ViewController.swift in Sources */,
 				1995B7A71E0E2F4C0075D7F3 /* AppDelegate.swift in Sources */,
 				1995B7AF1E0E2F4C0075D7F3 /* _______3.xcdatamodeld in Sources */,
+				19295DC81E10120700963E5B /* DateToStringUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

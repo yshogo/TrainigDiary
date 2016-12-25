@@ -10,14 +10,35 @@ import UIKit
 
 class PostViewController: UIViewController {
     
+    
+    @IBOutlet weak var datePickerField: UITextField!
+    
+    /// 日付を扱うために使用する変数
+    var myDatePicker : UIDatePicker!
+    var toolBar:UIToolbar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //テキストをDate型に変換してViewに追加する記述
+        datePickerField.placeholder = DateToStringUtil.dateToString(date: NSDate())
+        datePickerField.text = DateToStringUtil.dateToString(date: NSDate())
+        self.view.addSubview(datePickerField)
+        
+        createDatePicker();
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    /// DatePickerを生成する
+    func createDatePicker() {
+        
+        /// TODO 次回ここの記述から始める
     }
     
     
