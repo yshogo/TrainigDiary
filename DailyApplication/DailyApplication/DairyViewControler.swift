@@ -103,7 +103,7 @@ class DairyViewControler : UIViewController, UIToolbarDelegate{
         
         switch (sender as AnyObject).selectedSegmentIndex {
         case 0://「Entry」が押されたとき
-            let calendarViewControler = self.storyboard!.instantiateViewController( withIdentifier: "EntriesViewControler") as! ViewController
+            let calendarViewControler = self.storyboard!.instantiateViewController( withIdentifier: "EntriesViewControler") as! DairyViewControler
             self.present(calendarViewControler,animated: false,completion: nil)
             
         case 1://「Calendar」が押されたとき
