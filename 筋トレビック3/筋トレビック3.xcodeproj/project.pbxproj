@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1919FCC21E14F8F90041FE64 /* Big3Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919FCC01E14F8F90041FE64 /* Big3Entity+CoreDataClass.swift */; };
+		1919FCC31E14F8F90041FE64 /* Big3Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919FCC11E14F8F90041FE64 /* Big3Entity+CoreDataProperties.swift */; };
+		1919FCC61E154AD10041FE64 /* Big3DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919FCC51E154AD10041FE64 /* Big3DataModel.swift */; };
+		1919FCCA1E154CEF0041FE64 /* Big3Dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919FCC91E154CEF0041FE64 /* Big3Dao.swift */; };
 		19295DC81E10120700963E5B /* DateToStringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19295DC71E10120700963E5B /* DateToStringUtil.swift */; };
 		1995B7A71E0E2F4C0075D7F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995B7A61E0E2F4C0075D7F3 /* AppDelegate.swift */; };
 		1995B7A91E0E2F4C0075D7F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995B7A81E0E2F4C0075D7F3 /* ViewController.swift */; };
@@ -37,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1919FCC01E14F8F90041FE64 /* Big3Entity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Big3Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1919FCC11E14F8F90041FE64 /* Big3Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Big3Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1919FCC51E154AD10041FE64 /* Big3DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Big3DataModel.swift; sourceTree = "<group>"; };
+		1919FCC91E154CEF0041FE64 /* Big3Dao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Big3Dao.swift; sourceTree = "<group>"; };
 		19295DC71E10120700963E5B /* DateToStringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateToStringUtil.swift; sourceTree = "<group>"; };
 		1995B7A31E0E2F4C0075D7F3 /* 筋トレビック3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "筋トレビック3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1995B7A61E0E2F4C0075D7F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +88,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1919FCC41E14F94C0041FE64 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1919FCC11E14F8F90041FE64 /* Big3Entity+CoreDataProperties.swift */,
+				1919FCC01E14F8F90041FE64 /* Big3Entity+CoreDataClass.swift */,
+			);
+			name = Entity;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1919FCC71E154AD80041FE64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1919FCC51E154AD10041FE64 /* Big3DataModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1919FCC81E154CD30041FE64 /* dao */ = {
+			isa = PBXGroup;
+			children = (
+				1919FCC91E154CEF0041FE64 /* Big3Dao.swift */,
+			);
+			name = dao;
+			sourceTree = "<group>";
+		};
 		19295DC31E1010D600963E5B /* root */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +171,9 @@
 		1995B7A51E0E2F4C0075D7F3 /* 筋トレビック3 */ = {
 			isa = PBXGroup;
 			children = (
+				1919FCC81E154CD30041FE64 /* dao */,
+				1919FCC71E154AD80041FE64 /* Model */,
+				1919FCC41E14F94C0041FE64 /* Entity */,
 				19295DC61E10119700963E5B /* Util */,
 				19295DC51E10116400963E5B /* storyborad */,
 				19295DC41E10112600963E5B /* ViewController */,
@@ -304,9 +341,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1995B7D81E0EBF780075D7F3 /* PostViewController.swift in Sources */,
+				1919FCC21E14F8F90041FE64 /* Big3Entity+CoreDataClass.swift in Sources */,
 				1995B7A91E0E2F4C0075D7F3 /* ViewController.swift in Sources */,
 				1995B7A71E0E2F4C0075D7F3 /* AppDelegate.swift in Sources */,
 				1995B7AF1E0E2F4C0075D7F3 /* _______3.xcdatamodeld in Sources */,
+				1919FCCA1E154CEF0041FE64 /* Big3Dao.swift in Sources */,
+				1919FCC31E14F8F90041FE64 /* Big3Entity+CoreDataProperties.swift in Sources */,
+				1919FCC61E154AD10041FE64 /* Big3DataModel.swift in Sources */,
 				19295DC81E10120700963E5B /* DateToStringUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +498,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 77MXZW87XD;
 				INFOPLIST_FILE = "筋トレビック3/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

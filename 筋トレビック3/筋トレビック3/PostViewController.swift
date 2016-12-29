@@ -7,15 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController ,UITextFieldDelegate{
     
-    
+    //日付のテキストフィールド
     @IBOutlet weak var datePickerField: UITextField!
-    
+    /// 筋トレ種目ラベル
     @IBOutlet weak var big3Label: UILabel!
-    
-    
     /// 筋トレ種目ボタン
     @IBOutlet weak var benchPressButton: UIButton!
     @IBOutlet weak var scwattoButton: UIButton!
@@ -33,6 +32,11 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Returnキーを押したときにキーボードを閉じる設定
+        datePickerField.delegate = self
+        maxWeightField.delegate = self
+        lepNumField.delegate = self
+        
         //テキストをDate型に変換してViewに追加する記述
         datePickerField.placeholder = DateToStringUtil.dateToString(date: NSDate())
         datePickerField.text = DateToStringUtil.dateToString(date: NSDate())
@@ -46,19 +50,35 @@ class PostViewController: UIViewController {
     }
     
     
+    /// テキストフィールドでRetrunキーを押したときのキーボードを閉じるメソッド
+    ///
+    /// - Parameter textField: テキストフィールド
+    /// - Returns: true or false
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        // キーボードを閉じる
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
     /// 「投稿」ボタンクリックイベント
     ///
     /// - Parameter sender: <#sender description#>
     @IBAction func submid(_ sender: Any) {
         
-        var date = datePickerField.text
-        var big3 = big3Label.text
-        var maxweight = maxWeightField.text
-        var lepNum = lepNumField.text
+        ///テキストフィールドのテキストを一旦変数に格納
+        let date = datePickerField.text
+        let big3 = big3Label.text
+        let maxweight = maxWeightField.text
+        let lepNum = lepNumField.text
         
-        
-        
+        /// データを内部に保存する
+        let big3Model = Big3DataModel(date: date!, big3: big3!, maxweight: maxweight!, lepNum: lepNum!)
+        let dao = Big3Dao()
+        dao.saveData(big3DataModel: big3Model)
     }
+    
+    
     
     /// segmentationタブクリックイベント
     ///
@@ -87,7 +107,6 @@ class PostViewController: UIViewController {
         big3Label.text = text
     }
 
-    
     /// ベンチプレスボタンクリックイベント
     ///
     /// - Parameter sender: <#sender description#>
