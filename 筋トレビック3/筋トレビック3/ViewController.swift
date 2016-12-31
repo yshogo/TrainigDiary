@@ -26,10 +26,11 @@ class ViewController: UIViewController {
    
     @IBAction func テストデータゲット(_ sender: Any) {
         
-        
         //データを取得する
         let bigDao = Big3Dao()
-        bigDao.getTranscriptions()
+        var list = bigDao.getTranscriptions()
+        
+        print("検索できたよー")
     }
     
     /// segmentationTABをクリックしたときのクリックイベント

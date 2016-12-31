@@ -74,11 +74,14 @@ class PostViewController: UIViewController ,UITextFieldDelegate{
         let maxweight = maxWeightField.text
         let lepNum = lepNumField.text
         
-        /// データを内部に保存する
-        let big3Model = Big3DataModel(date: date!, big3: big3!, maxweight: maxweight!, lepNum: lepNum!)
+        let model = Big3DataModel()
+        model.date = date!
+        model.big3 = big3!
+        model.lepNum = lepNum!
+        model.maxweight = maxweight!
+
         let dao = Big3Dao()
-        dao.saveData(big3DataModel: big3Model)
-        
+        dao.saveData(big3DataModel: model)
     }
     
     

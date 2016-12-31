@@ -14,15 +14,6 @@ import UIKit
 /// 内部DBに保存するクラス
 class Big3Dao{
     
-    /// Contextを取得する
-    ///
-    /// - Returns:コンテキスト
-    private func getContext () -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
-    }
-
-    
     /// データを保存する
     ///
     /// - Parameter big3DataModel: 保存するデータを格納したデータモデル
@@ -53,8 +44,8 @@ class Big3Dao{
         }
     }
     
-    /// ビック3のデータを取得する
-    func getTranscriptions () {
+    /// ビック3のデータを全件取得する
+    func getTranscriptions () -> Array<Big3DataModel> {
         
         /* Get ManagedObjectContext from AppDelegate */
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -63,15 +54,27 @@ class Big3Dao{
         /* Set search conditions */
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Big3Entity")
         
+        
+        var big3DataModelList = Array<Big3DataModel>()
         /* Get result array from ManagedObjectContext */
         do {
             let fetchResults = try manageContext.fetch(fetchRequest)
             print ("num of results = \(fetchResults.count)")
             
+            for var row in fetchResults as! [NSManagedObject]{
+                let model = Big3DataModel()
+                model.date = row.value(forKey: "date") as! String
+                model.big3 = row.value(forKey: "big3") as! String
+                model.lepNum = row.value(forKey: "lepNum") as! String
+                model.maxweight = row.value(forKey: "maxweight") as! String
+                
+                big3DataModelList.append(model)
+            }
         } catch {
             print("想定外のエラー")
         }
         
+        return big3DataModelList
     }
 }
 
