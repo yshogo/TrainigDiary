@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-@objc(Big3Entity)
 public class Big3Entity: NSManagedObject {
 
 }

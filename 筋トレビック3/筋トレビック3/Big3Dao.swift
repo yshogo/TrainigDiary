@@ -10,19 +10,31 @@ import Foundation
 import CoreData
 import UIKit
 
+
+/// 内部DBに保存するクラス
 class Big3Dao{
     
+    /// Contextを取得する
+    ///
+    /// - Returns:コンテキスト
+    private func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+
     
     /// データを保存する
     ///
     /// - Parameter big3DataModel: 保存するデータを格納したデータモデル
     func saveData(big3DataModel:Big3DataModel){
         
-        let context = getContext()
+        /* Get ManagedObjectContext from AppDelegate */
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext: NSManagedObjectContext = appDelegate.managedObjectContext
         
-        //retrieve the entity that we just created
-        let entity =  NSEntityDescription.entity(forEntityName: "Big3Entity", in: context)
-        let transc = NSManagedObject(entity: entity!, insertInto: context)
+        /* Create new ManagedObject */
+        let entity = NSEntityDescription.entity(forEntityName: "Big3Entity", in: managedContext)
+        let transc = NSManagedObject(entity: entity!, insertInto: managedContext)
         
         //set the entity values
         transc.setValue(big3DataModel.date, forKey: "date")
@@ -32,7 +44,7 @@ class Big3Dao{
         
         //save the object
         do {
-            try context.save()
+            try managedContext.save()
             print("保存されたよー!")
         } catch let error as NSError  {
             print("保存に失敗しました \(error), \(error.userInfo)")
@@ -41,12 +53,25 @@ class Big3Dao{
         }
     }
     
-    
-    /// COntextを取得する
-    ///
-    /// - Returns:コンテキスト
-    private func getContext () -> NSManagedObjectContext {
+    /// ビック3のデータを取得する
+    func getTranscriptions () {
+        
+        /* Get ManagedObjectContext from AppDelegate */
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
+        let manageContext = appDelegate.managedObjectContext
+        
+        /* Set search conditions */
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Big3Entity")
+        
+        /* Get result array from ManagedObjectContext */
+        do {
+            let fetchResults = try manageContext.fetch(fetchRequest)
+            print ("num of results = \(fetchResults.count)")
+            
+        } catch {
+            print("想定外のエラー")
+        }
+        
     }
 }
+

@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+/// 内部DBに保存するデータオブジェクト
 class Big3DataModel{
     
     var date:String

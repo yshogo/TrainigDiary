@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+
+/// データ投稿画面
 class PostViewController: UIViewController ,UITextFieldDelegate{
     
     //日付のテキストフィールド
@@ -76,6 +78,7 @@ class PostViewController: UIViewController ,UITextFieldDelegate{
         let big3Model = Big3DataModel(date: date!, big3: big3!, maxweight: maxweight!, lepNum: lepNum!)
         let dao = Big3Dao()
         dao.saveData(big3DataModel: big3Model)
+        
     }
     
     
