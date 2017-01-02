@@ -78,4 +78,38 @@ class DateManager : NSObject{
         return calendar.component(.day, from: currentday!).description
     }
     
+    //今セレクトされているselectDayの年月をテキストで出力
+    func CalendarHeader()->String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY/MM/dd"
+        
+        return formatter.string(from: selectDay)
+    }
+    
+    /*
+     表示月を変える操作
+     */
+    
+    //SelectDayを一ヶ月戻す
+    func preMonthCalendar(){
+        selectDay = calendar.date(byAdding: .month, value: -1, to: selectDay)!
+    }
+    
+    //SelectDayを1か月進ませる
+    func nextMonthCalendar(){
+        selectDay = calendar.date(byAdding: .month, value: 1, to: selectDay)!
+    }
+    
+    
+    //SelectDayを1日戻す
+    func preDayCalendar(){
+        selectDay = calendar.date(byAdding: .day, value: -1, to: selectDay)!
+    }
+    
+    //SelectDayを1日進む
+    func nextDayCalendar(){
+        selectDay = calendar.date(byAdding: .day, value: 1, to: selectDay)!
+    }
+
+    
 }

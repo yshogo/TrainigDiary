@@ -40,6 +40,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         //delegate登録
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
+        
+        //カレンダーラベルを設定
+        dateLabel.text = dateManager.CalendarHeader()
     }
 
     override func didReceiveMemoryWarning() {
@@ -134,11 +137,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     /// 前月ボタンクリックイベント
     /// - Parameter sender: <#sender description#>
     @IBAction func prevButtonEvent(_ sender: Any) {
+        dateManager.preMonthCalendar()
+        calendarCollectionView.reloadData()
+        dateLabel.text = dateManager.CalendarHeader()
     }
     
     /// 次月ボタンクリックイベント
     /// - Parameter sender: <#sender description#>
     @IBAction func nextButtonEvent(_ sender: Any) {
+        dateManager.nextMonthCalendar()
+        calendarCollectionView.reloadData()
+        dateLabel.text = dateManager.CalendarHeader()
     }
     
     /// segmentationTABをクリックしたときのクリックイベント
