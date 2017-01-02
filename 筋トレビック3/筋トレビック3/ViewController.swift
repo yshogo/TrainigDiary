@@ -10,26 +10,17 @@ import UIKit
 import CoreData
 
 
-// MARK: - 色タプル
-extension UIColor {
-    class func lightBlue() -> UIColor {
-        return UIColor(red: 92.0 / 255, green: 192.0 / 255, blue: 210.0 / 255, alpha: 1.0)
-    }
-    
-    class func lightRed() -> UIColor {
-        return UIColor(red: 195.0 / 255, green: 123.0 / 255, blue: 175.0 / 255, alpha: 1.0)
-    }
-}
-
 /// カレンダー画面
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
     let dateManager = DateManager()
     let daysPerWeek: Int = 7
-    let cellMargin: CGFloat = 2.0
+    let cellMargin: CGFloat = 5.0
     var selectedDate = NSDate()
     var today: NSDate!
     let weekArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    
+    let dateManeger = DateManager()
 
     /// 前月ボタン
     @IBOutlet weak var prevButton: UIButton!
@@ -49,7 +40,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         //delegate登録
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
-        calendarCollectionView.backgroundColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,14 +48,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     
-    /// セクションの数(セクション1：曜日 セクション2：日にちの数)
-    ///
-    /// - Parameter collectionView: <#collectionView description#>
-    /// - Returns: <#return value description#>
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 2
+    //セルをクリックしたら呼ばれる
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Num：\(indexPath.row) Section:\(indexPath.section)")
     }
-    
     
     /// セルの数
     ///
@@ -74,14 +60,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     ///   - section: <#section description#>
     /// - Returns: <#return value description#>
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // Section毎にCellの総数を変える.
-        if section == 0 {
-            //セクション1の場合は曜日だけなので「7」を返す
-            return daysPerWeek
-        } else {
-            //セクション2は月によって異なる
-            return 30//現時点では30とする
-        }
+        
+        return dateManager.daysAcquisition()
     }
     
     
@@ -95,10 +75,61 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         //コレクションビューから識別子「CalendarCell」のセルを取得する
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCellViewController", for: indexPath) as! CalendarCellViewController
+                                          //日付表示
+        cell.textLabel.text = dateManager.conversionDateFormat(index: indexPath.row)
         
         return cell
     }
     
+    
+    /// セルサイズの指定（UICollectionViewDelegateFlowLayoutで必須）　横幅いっぱいにセルが広がるようにしたい
+    ///
+    /// - Parameters:
+    ///   - collectionView: <#collectionView description#>
+    ///   - collectionViewLayout: <#collectionViewLayout description#>
+    ///   - indexPath: <#indexPath description#>
+    /// - Returns: <#return value description#>
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let numberOfMargin:CGFloat = 8.0
+        let widths:CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin)/CGFloat(daysPerWeek)
+        let heights:CGFloat = widths * 0.8
+        
+        return CGSize(width:widths,height:heights)
+    }
+    
+    
+    /// セルのアイテムのマージンを設定
+    ///
+    /// - Parameters:
+    ///   - collectionView: <#collectionView description#>
+    ///   - collectionViewLayout: <#collectionViewLayout description#>
+    ///   - section: <#section description#>
+    /// - Returns: <#return value description#>
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0.0 , 0.0 , 0.0 , 0.0 )  //マージン(top , left , bottom , right)
+    }
+    
+    /// セルの水平方向のマージンを設定
+    ///
+    /// - Parameters:
+    ///   - collectionView: <#collectionView description#>
+    ///   - collectionViewLayout: <#collectionViewLayout description#>
+    ///   - section: <#section description#>
+    /// - Returns: <#return value description#>
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return cellMargin
+    }
+    
+    /// セルの垂直方向のマージンを設定
+    ///
+    /// - Parameters:
+    ///   - collectionView: <#collectionView description#>
+    ///   - collectionViewLayout: <#collectionViewLayout description#>
+    ///   - section: <#section description#>
+    /// - Returns: <#return value description#>
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return cellMargin
+    }
     
     /// 前月ボタンクリックイベント
     /// - Parameter sender: <#sender description#>
