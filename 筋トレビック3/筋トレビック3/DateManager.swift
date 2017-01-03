@@ -79,12 +79,28 @@ class DateManager : NSObject{
     }
     
     //今セレクトされているselectDayの年月をテキストで出力
+    
+    /// 現在の日付をセレクトした状態で表示
+    ///
+    /// - Returns: <#return value description#>
     public func CalendarHeader()->String{
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY/MM/dd"
         
         return formatter.string(from: selectDay)
     }
+    
+    /// 指定された日付にして表示
+    ///
+    /// - Parameter date: <#date description#>
+    /// - Returns: <#return value description#>
+    public func CalendarHeader(date : String)->String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY/MM/" + date
+        
+        return formatter.string(from: selectDay)
+    }
+
     
     /*
      表示月を変える操作

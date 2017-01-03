@@ -50,7 +50,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     //セルをクリックしたら呼ばれる
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Num：\(indexPath.row)")
+        
+        let date = dateManager.conversionDateFormat(index: indexPath.row)
+        
+        dateLabel.text = dateManager.CalendarHeader(date: date)
+        
     }
     
     /// セルの数
@@ -77,6 +81,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCellViewController", for: indexPath) as! CalendarCellViewController
                                           //日付表示
         cell.textLabel.text = dateManager.conversionDateFormat(index: indexPath.row)
+        
+        //土曜と日曜はテキストの色を変更する
+        if  indexPath.row % 7 == 0 {
+            cell.textLabel.textColor = UIColor.red
+        }else if indexPath.row % 7 == 6 {
+            cell.textLabel.textColor = UIColor.blue
+        }
         
         return cell
     }
