@@ -27,7 +27,7 @@ class DateManager : NSObject{
     /// 月カレンダーの始点になる日を求める
     ///
     /// - Returns: 最初の日
-    func BeginOfMonthCalender() -> Date{
+    private func BeginOfMonthCalender() -> Date{
         
         //日付の要素を1日にする
         var components = calendar.dateComponents([.year,.month,.day], from: selectDay)
@@ -43,7 +43,7 @@ class DateManager : NSObject{
     /// 月カレンダーの終点になる日を求める
     ///
     /// - Returns: 最後の日
-    func EndOfMonthCalendar() ->Date{
+    private func EndOfMonthCalendar() ->Date{
         
         //次の月初めを取得
         let nextmonth = calendar.nextDate(after: selectDay, matching: DateComponents(day:1), matchingPolicy: Calendar.MatchingPolicy.nextTime)
@@ -57,7 +57,7 @@ class DateManager : NSObject{
     /// 月ごとのセルの数を出すメソッド
     ///
     /// - Returns:月ごとのセルの数
-    func daysAcquisition() -> Int{
+    public func daysAcquisition() -> Int{
         
         //始まりの日と終わりの日を取得
         biginDay = BeginOfMonthCalender()
@@ -71,7 +71,7 @@ class DateManager : NSObject{
     ///
     /// - Parameter index: 指定した日数
     /// - Returns: 日付
-    func conversionDateFormat(index: Int)->String{
+    public func conversionDateFormat(index: Int)->String{
         
         let currentday = calendar.date(byAdding: .day, value: index, to: biginDay)
         
@@ -79,7 +79,7 @@ class DateManager : NSObject{
     }
     
     //今セレクトされているselectDayの年月をテキストで出力
-    func CalendarHeader()->String{
+    public func CalendarHeader()->String{
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY/MM/dd"
         
@@ -91,23 +91,23 @@ class DateManager : NSObject{
      */
     
     //SelectDayを一ヶ月戻す
-    func preMonthCalendar(){
+    public func preMonthCalendar(){
         selectDay = calendar.date(byAdding: .month, value: -1, to: selectDay)!
     }
     
     //SelectDayを1か月進ませる
-    func nextMonthCalendar(){
+    public func nextMonthCalendar(){
         selectDay = calendar.date(byAdding: .month, value: 1, to: selectDay)!
     }
     
     
     //SelectDayを1日戻す
-    func preDayCalendar(){
+    public func preDayCalendar(){
         selectDay = calendar.date(byAdding: .day, value: -1, to: selectDay)!
     }
     
     //SelectDayを1日進む
-    func nextDayCalendar(){
+    public func nextDayCalendar(){
         selectDay = calendar.date(byAdding: .day, value: 1, to: selectDay)!
     }
 

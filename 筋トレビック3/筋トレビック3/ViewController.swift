@@ -18,10 +18,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     let cellMargin: CGFloat = 5.0
     var selectedDate = NSDate()
     var today: NSDate!
-    let weekArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     
-    let dateManeger = DateManager()
-
     /// 前月ボタン
     @IBOutlet weak var prevButton: UIButton!
     /// 次月ボタン
@@ -53,7 +50,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     //セルをクリックしたら呼ばれる
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Num：\(indexPath.row) Section:\(indexPath.section)")
+        print("Num：\(indexPath.row)")
     }
     
     /// セルの数
