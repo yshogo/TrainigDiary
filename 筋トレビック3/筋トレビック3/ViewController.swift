@@ -95,7 +95,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfMargin:CGFloat = 8.0
         let widths:CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin)/CGFloat(daysPerWeek)
-        let heights:CGFloat = widths * 0.8
+        let heights:CGFloat = widths * 2
         
         return CGSize(width:widths,height:heights)
     }
@@ -131,6 +131,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     ///   - section: <#section description#>
     /// - Returns: <#return value description#>
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
         return cellMargin
     }
     
