@@ -81,13 +81,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCellViewController", for: indexPath) as! CalendarCellViewController
                                           //日付表示
         cell.textLabel.text = dateManager.conversionDateFormat(index: indexPath.row)
+        cell.compLabel.text = "済"
         
-        //土曜と日曜はテキストの色を変更する
-        if  indexPath.row % 7 == 0 {
-            cell.textLabel.textColor = UIColor.red
-        }else if indexPath.row % 7 == 6 {
-            cell.textLabel.textColor = UIColor.blue
-        }
+        print(cell.textLabel.text)
         
         return cell
     }
