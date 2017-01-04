@@ -23,6 +23,7 @@
 		1995B7D81E0EBF780075D7F3 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995B7D71E0EBF780075D7F3 /* PostViewController.swift */; };
 		19EA58F91E18FE3400F1CE5A /* CalendarCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EA58F81E18FE3400F1CE5A /* CalendarCellViewController.swift */; };
 		19EA58FC1E19042700F1CE5A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EA58FB1E19042700F1CE5A /* DateManager.swift */; };
+		19EA59021E1BCACA00F1CE5A /* TrainingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EA59011E1BCACA00F1CE5A /* TrainingType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		1995B7D71E0EBF780075D7F3 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		19EA58F81E18FE3400F1CE5A /* CalendarCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCellViewController.swift; sourceTree = "<group>"; };
 		19EA58FB1E19042700F1CE5A /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		19EA59011E1BCACA00F1CE5A /* TrainingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 		1995B7A51E0E2F4C0075D7F3 /* 筋トレビック3 */ = {
 			isa = PBXGroup;
 			children = (
+				19EA59001E1BC9C600F1CE5A /* Type */,
 				19EA58FA1E1902FA00F1CE5A /* manager */,
 				1919FCC81E154CD30041FE64 /* dao */,
 				1919FCC71E154AD80041FE64 /* Model */,
@@ -215,6 +218,14 @@
 				19EA58FB1E19042700F1CE5A /* DateManager.swift */,
 			);
 			name = manager;
+			sourceTree = "<group>";
+		};
+		19EA59001E1BC9C600F1CE5A /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				19EA59011E1BCACA00F1CE5A /* TrainingType.swift */,
+			);
+			name = Type;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +372,7 @@
 				1995B7A71E0E2F4C0075D7F3 /* AppDelegate.swift in Sources */,
 				1995B7AF1E0E2F4C0075D7F3 /* _______3.xcdatamodeld in Sources */,
 				1919FCCA1E154CEF0041FE64 /* Big3Dao.swift in Sources */,
+				19EA59021E1BCACA00F1CE5A /* TrainingType.swift in Sources */,
 				19EA58FC1E19042700F1CE5A /* DateManager.swift in Sources */,
 				1919FCC31E14F8F90041FE64 /* Big3Entity+CoreDataProperties.swift in Sources */,
 				1919FCC61E154AD10041FE64 /* Big3DataModel.swift in Sources */,

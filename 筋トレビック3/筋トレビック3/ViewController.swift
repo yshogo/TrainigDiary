@@ -81,9 +81,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCellViewController", for: indexPath) as! CalendarCellViewController
                                           //日付表示
         cell.textLabel.text = dateManager.conversionDateFormat(index: indexPath.row)
-        cell.compLabel.text = "済"
         
-        print(cell.textLabel.text)
+        //表示されている日付を取得
+        let trainingType = TrainingType()
+        
+        let date = dateManager.conversionDateFormat(index: indexPath.row)
+        let dateLabel = dateManager.CalendarHeader(date: date)
+        
+        //保存されている筋トレの種類によってセルのテキストを変える
+        let trainingTypeEnum = trainingType.isTraingType(date: dateLabel)
+        if trainingTypeEnum == TrainingTypeEnum.BENCH_PRESS{
+            cell.compLabel.text = "ベンチ"
+        }else if trainingTypeEnum == TrainingTypeEnum.SCWATTO{
+            cell.compLabel.text = "スクワット"
+        }else if trainingTypeEnum == TrainingTypeEnum.DEAD_LIFT{
+            cell.compLabel.text = "デットリスト"
+        }
         
         return cell
     }

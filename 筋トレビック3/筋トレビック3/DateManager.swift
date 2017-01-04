@@ -96,6 +96,12 @@ class DateManager : NSObject{
     /// - Returns: <#return value description#>
     public func CalendarHeader(date : String)->String{
         let formatter = DateFormatter()
+        
+        var date = date
+        if date.characters.count == 1{
+            date = "0" + date
+        }
+        
         formatter.dateFormat = "YYYY/MM/" + date
         
         return formatter.string(from: selectDay)

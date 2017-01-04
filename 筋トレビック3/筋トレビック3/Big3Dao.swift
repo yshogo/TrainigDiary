@@ -59,7 +59,6 @@ class Big3Dao{
         /* Get result array from ManagedObjectContext */
         do {
             let fetchResults = try manageContext.fetch(fetchRequest)
-            print ("num of results = \(fetchResults.count)")
             
             for var row in fetchResults as! [NSManagedObject]{
                 let model = Big3DataModel()
