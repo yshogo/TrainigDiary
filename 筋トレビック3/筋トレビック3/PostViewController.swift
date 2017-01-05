@@ -44,6 +44,10 @@ class PostViewController: UIViewController ,UITextFieldDelegate{
         datePickerField.text = DateToStringUtil.dateToString(date: NSDate())
         self.view.addSubview(datePickerField)
         
+        //datepikerの生成
+        createDatePicker()
+        //toolbarの生成
+        createToober()
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,6 +55,48 @@ class PostViewController: UIViewController ,UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    /// DatePickerを生成
+    func createDatePicker(){
+        
+        myDatePicker = UIDatePicker()
+        //DatePickerにクリックイベントを付与する
+        myDatePicker.addTarget(self, action: #selector(PostViewController.changedDateEvent), for: UIControlEvents.valueChanged)
+        //datePickerの種類をセット(時間なども設定可能)
+        myDatePicker.datePickerMode = UIDatePickerMode.date
+        //テキストフィールドに追加
+        datePickerField.inputView = myDatePicker
+    }
+    
+    ///DatePickerスライドイベント
+    ///
+    /// - Parameter sender: <#sender description#>
+    func changedDateEvent(sender: AnyObject?){
+        datePickerField.text = DateToStringUtil.dateToString(date: myDatePicker.date as NSDate)
+    }
+    
+    /// Toolbarを生成
+    func createToober(){
+        
+        toolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
+        toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        toolBar.barStyle = .blackTranslucent
+        toolBar.tintColor = UIColor.white
+        toolBar.backgroundColor = UIColor.black
+        
+        //ツールバーにボタンを追加
+        let compToolBarBtn = UIBarButtonItem(title: "完了", style: .bordered, target: self, action: #selector(PostViewController.tappedToolBarBtn))
+        compToolBarBtn.tag = 1
+        toolBar.items = [compToolBarBtn]
+        
+        datePickerField.inputAccessoryView = toolBar
+    }
+    
+    /// 「完了」ボタンのクリックイベント(閉じるだけ。。。)
+    ///
+    /// - Parameter sender: <#sender description#>
+    func tappedToolBarBtn(sender: AnyObject?) {
+        datePickerField.resignFirstResponder()
+    }
     
     /// テキストフィールドでRetrunキーを押したときのキーボードを閉じるメソッド
     ///
@@ -104,7 +150,6 @@ class PostViewController: UIViewController ,UITextFieldDelegate{
         }
 
     }
-    
     
     /// ビック3のラベルのテキストを変える
     ///
