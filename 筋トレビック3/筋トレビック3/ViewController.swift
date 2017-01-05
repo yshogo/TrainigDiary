@@ -52,7 +52,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let date = dateManager.conversionDateFormat(index: indexPath.row)
-        
+        //タイトルを選択された日付に返す
         dateLabel.text = dateManager.CalendarHeader(date: date)
         
     }
@@ -79,7 +79,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         //コレクションビューから識別子「CalendarCell」のセルを取得する
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCellViewController", for: indexPath) as! CalendarCellViewController
-                                          //日付表示
+
+        //セルにテキストがすでに表示されている場合は一度リセットする
+        if cell.compLabel.text != ""{
+            cell.compLabel.text = ""
+        }
+
+        //日付表示
         cell.textLabel.text = dateManager.conversionDateFormat(index: indexPath.row)
         
         //表示されている日付を取得
