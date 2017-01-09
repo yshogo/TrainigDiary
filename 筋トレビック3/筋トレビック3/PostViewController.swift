@@ -28,11 +28,12 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     
     
     /// 日付を扱うために使用する変数
-    var myDatePicker : UIDatePicker!
+    var myDatePicker:UIDatePicker!
     var toolBar:UIToolbar!
     
     //レップ数,最大重量のPicker
-    var numberPicker : UIPickerView = UIPickerView()
+    var numberPicker:UIPickerView = UIPickerView()
+    var numberToolbar:UIToolbar = UIToolbar()
     var salarymanArr = ["1","2","3","4","5","6","7","8","9","0"]
     
     override func viewDidLoad() {
@@ -57,8 +58,8 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
         numberPicker.delegate = self
         numberPicker.dataSource = self
         createNumPicker()
+        createNumberToolbar()
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -67,10 +68,29 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     
     /// レップ数、最大重量のPickerを生成する
     func createNumPicker(){
-        
+        //Pickerの生成
         numberPicker.frame = CGRect(x:0,y:0,width:self.view.bounds.width,height:250.0)
         maxWeightField.inputView = numberPicker
         lepNumField.inputView = numberPicker
+    }
+    
+    /// レップ数、最大重量のTollbarを生成する
+    func createNumberToolbar(){
+        //Toolbarの生成
+        numberToolbar = UIToolbar(frame: CGRect(x:0,y:self.view.frame.size.height/6,width:self.view.frame.size.width,height:40.0))
+        numberToolbar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        numberToolbar.backgroundColor = UIColor.black
+        numberToolbar.barStyle = UIBarStyle.black
+        numberToolbar.tintColor = UIColor.white
+        
+        //ToolBarを閉じるボタンを追加
+        let myToolBarButton = UIBarButtonItem(title: "完了", style: .bordered, target: self, action: #selector(PostViewController.tappedToolBarBtn))
+        myToolBarButton.tag = 1
+        numberToolbar.items = [myToolBarButton]
+        
+        maxWeightField.inputAccessoryView = numberToolbar
+        lepNumField.inputAccessoryView = numberToolbar
+        
         
     }
     
@@ -137,6 +157,9 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     /// - Parameter sender: <#sender description#>
     func tappedToolBarBtn(sender: AnyObject?) {
         datePickerField.resignFirstResponder()
+        maxWeightField.resignFirstResponder()
+        lepNumField.resignFirstResponder()
+
     }
     
     /// テキストフィールドでRetrunキーを押したときのキーボードを閉じるメソッド
