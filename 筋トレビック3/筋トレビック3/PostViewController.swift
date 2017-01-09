@@ -106,8 +106,8 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     
     /// pickerの選択時
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("列: \(row)")
-        print("値: \(salarymanArr[row])")
+        
+        maxWeightField.text = salarymanArr[row]
     }
     
     /// DatePickerを生成
