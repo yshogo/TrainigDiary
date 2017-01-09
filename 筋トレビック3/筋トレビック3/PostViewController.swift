@@ -11,7 +11,7 @@ import CoreData
 
 
 /// データ投稿画面
-class PostViewController: UIViewController ,UITextFieldDelegate{
+class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDelegate , UIPickerViewDataSource{
     
     //日付のテキストフィールド
     @IBOutlet weak var datePickerField: UITextField!
@@ -31,6 +31,10 @@ class PostViewController: UIViewController ,UITextFieldDelegate{
     var myDatePicker : UIDatePicker!
     var toolBar:UIToolbar!
     
+    //レップ数,最大重量のPicker
+    var numberPicker : UIPickerView = UIPickerView()
+    var salarymanArr = ["1","2","3","4","5","6","7","8","9","0"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,15 +52,51 @@ class PostViewController: UIViewController ,UITextFieldDelegate{
         createDatePicker()
         //toolbarの生成
         createToober()
+        
+        //レップ数、最大重量のPickerを生成
+        numberPicker.delegate = self
+        numberPicker.dataSource = self
+        createNumPicker()
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    /// レップ数、最大重量のPickerを生成する
+    func createNumPicker(){
+        
+        numberPicker.frame = CGRect(x:0,y:0,width:self.view.bounds.width,height:250.0)
+        maxWeightField.inputView = numberPicker
+        lepNumField.inputView = numberPicker
+        
+    }
+    
+    /// pickerの表示列
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    /// pickerの表示個数
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return salarymanArr.count
+    }
+    
+    /// pickerの表示内容
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return salarymanArr[row] as String
+    }
+    
+    /// pickerの選択時
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("列: \(row)")
+        print("値: \(salarymanArr[row])")
+    }
+    
     /// DatePickerを生成
-    func createDatePicker(){
+    private func createDatePicker(){
         
         myDatePicker = UIDatePicker()
         //DatePickerにクリックイベントを付与する
@@ -67,6 +107,7 @@ class PostViewController: UIViewController ,UITextFieldDelegate{
         datePickerField.inputView = myDatePicker
     }
     
+    
     ///DatePickerスライドイベント
     ///
     /// - Parameter sender: <#sender description#>
@@ -75,7 +116,7 @@ class PostViewController: UIViewController ,UITextFieldDelegate{
     }
     
     /// Toolbarを生成
-    func createToober(){
+    private func createToober(){
         
         toolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)

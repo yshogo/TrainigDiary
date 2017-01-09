@@ -52,7 +52,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         let date = dateManager.conversionDateFormat(index: indexPath.row)
         //タイトルを選択された日付に返す
-        dateLabel.text = dateManager.CalendarHeader(date: date)
+        dateLabel.text = dateManager.CalendarHeader(date: date,row:indexPath.row)
         
     }
     
@@ -91,7 +91,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let trainingType = TrainingType()
         
         let date = dateManager.conversionDateFormat(index: indexPath.row)
-        let dateLabel = dateManager.CalendarHeader(date: date)
+        let dateLabel = dateManager.CalendarHeader(date: date,row:indexPath.row)
         
         //保存されている筋トレの種類によってセルのテキストを変える
         let trainingTypeEnum = trainingType.isTraingType(date: dateLabel)

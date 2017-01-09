@@ -94,7 +94,7 @@ class DateManager : NSObject{
     ///
     /// - Parameter date: <#date description#>
     /// - Returns: <#return value description#>
-    public func CalendarHeader(date : String)->String{
+    public func CalendarHeader(date : String,row:Int)->String{
         let formatter = DateFormatter()
         
         var date = date
@@ -103,6 +103,13 @@ class DateManager : NSObject{
         }
         
         formatter.dateFormat = "YYYY/MM/" + date
+        
+        //日付が一行目の場合は1ヶ月前と判定する
+        if row < 7 {
+            
+            let date = calendar.date(byAdding: .day, value: -1, to: selectDay)!
+            return formatter.string(from: date)
+        }
         
         return formatter.string(from: selectDay)
     }
