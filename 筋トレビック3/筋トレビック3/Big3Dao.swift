@@ -31,7 +31,6 @@ class Big3Dao{
         transc.setValue(big3DataModel.date, forKey: "date")
         transc.setValue(big3DataModel.big3, forKey: "big3")
         transc.setValue(big3DataModel.maxweight, forKey: "maxweight")
-        transc.setValue(big3DataModel.lepNum, forKey: "lepNum")
         
         //save the object
         do {
@@ -64,7 +63,6 @@ class Big3Dao{
                 let model = Big3DataModel()
                 model.date = row.value(forKey: "date") as! String
                 model.big3 = row.value(forKey: "big3") as! String
-                model.lepNum = row.value(forKey: "lepNum") as! String
                 model.maxweight = row.value(forKey: "maxweight") as! String
                 
                 big3DataModelList.append(model)

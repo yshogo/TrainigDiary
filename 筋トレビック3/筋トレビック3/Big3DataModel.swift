@@ -21,7 +21,4 @@ class Big3DataModel{
     /// 最大重量
     var maxweight:String = ""
     
-    /// レップ数
-    var lepNum:String = ""
-    
 }

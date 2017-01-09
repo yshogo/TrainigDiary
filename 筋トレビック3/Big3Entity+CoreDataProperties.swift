@@ -20,6 +20,5 @@ extension Big3Entity {
     @NSManaged public var date: String?
     @NSManaged public var big3: String?
     @NSManaged public var maxweight: String?
-    @NSManaged public var lepNum: String?
 
 }

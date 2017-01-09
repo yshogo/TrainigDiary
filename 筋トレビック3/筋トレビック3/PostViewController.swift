@@ -23,15 +23,13 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     @IBOutlet weak var deadLiftButton: UIButton!
     /// 最大重量ボタン
     @IBOutlet weak var maxWeightField: UITextField!
-    /// レップ数フィールド
-    @IBOutlet weak var lepNumField: UITextField!
     
     
     /// 日付を扱うために使用する変数
     var myDatePicker:UIDatePicker!
     var toolBar:UIToolbar!
     
-    //レップ数,最大重量のPicker
+    //最大重量のPicker
     var numberPicker:UIPickerView = UIPickerView()
     var numberToolbar:UIToolbar = UIToolbar()
     var salarymanArr = ["1","2","3","4","5","6","7","8","9","0"]
@@ -42,7 +40,6 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
         //Returnキーを押したときにキーボードを閉じる設定
         datePickerField.delegate = self
         maxWeightField.delegate = self
-        lepNumField.delegate = self
         
         //テキストをDate型に変換してViewに追加する記述
         datePickerField.placeholder = DateToStringUtil.dateToString(date: NSDate())
@@ -54,7 +51,7 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
         //toolbarの生成
         createToober()
         
-        //レップ数、最大重量のPickerを生成
+        //最大重量のPickerを生成
         numberPicker.delegate = self
         numberPicker.dataSource = self
         createNumPicker()
@@ -66,15 +63,14 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    /// レップ数、最大重量のPickerを生成する
+    /// 最大重量のPickerを生成する
     func createNumPicker(){
         //Pickerの生成
         numberPicker.frame = CGRect(x:0,y:0,width:self.view.bounds.width,height:250.0)
         maxWeightField.inputView = numberPicker
-        lepNumField.inputView = numberPicker
     }
     
-    /// レップ数、最大重量のTollbarを生成する
+    /// 最大重量のTollbarを生成する
     func createNumberToolbar(){
         //Toolbarの生成
         numberToolbar = UIToolbar(frame: CGRect(x:0,y:self.view.frame.size.height/6,width:self.view.frame.size.width,height:40.0))
@@ -89,7 +85,6 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
         numberToolbar.items = [myToolBarButton]
         
         maxWeightField.inputAccessoryView = numberToolbar
-        lepNumField.inputAccessoryView = numberToolbar
         
         
     }
@@ -158,7 +153,6 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     func tappedToolBarBtn(sender: AnyObject?) {
         datePickerField.resignFirstResponder()
         maxWeightField.resignFirstResponder()
-        lepNumField.resignFirstResponder()
 
     }
     
@@ -182,12 +176,10 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
         let date = datePickerField.text
         let big3 = big3Label.text
         let maxweight = maxWeightField.text
-        let lepNum = lepNumField.text
         
         let model = Big3DataModel()
         model.date = date!
         model.big3 = big3!
-        model.lepNum = lepNum!
         model.maxweight = maxweight!
 
         let dao = Big3Dao()
