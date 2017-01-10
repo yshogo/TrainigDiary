@@ -172,20 +172,77 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     /// - Parameter sender: <#sender description#>
     @IBAction func submid(_ sender: Any) {
         
+        showAlert()
+    }
+    
+    /// 投稿完了のアラートを出すアラートを出す
+    func showAlert(){
+        
+        // ① UIAlertControllerクラスのインスタンスを生成
+        // タイトル, メッセージ, Alertのスタイルを指定する
+        // 第3引数のpreferredStyleでアラートの表示スタイルを指定する
+        let alert: UIAlertController = UIAlertController(title: "投稿確認", message: "保存してもいいですか？", preferredStyle:  UIAlertControllerStyle.alert)
+        
+        // ② Actionの設定
+        // Action初期化時にタイトル, スタイル, 押された時に実行されるハンドラを指定する
+        // 第3引数のUIAlertActionStyleでボタンのスタイルを指定する
+        // OKボタン
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            //データを保存する
+            self.saveData()
+            
+            //投稿されたあらーとを出す
+            let okAlert: UIAlertController = UIAlertController(title: "保存完了しました。", message: "", preferredStyle:  UIAlertControllerStyle.alert)
+            
+            // ② Actionの設定
+            // Action初期化時にタイトル, スタイル, 押された時に実行されるハンドラを指定する
+            // 第3引数のUIAlertActionStyleでボタンのスタイルを指定する
+            // OKボタン
+            let okAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+                // ボタンが押された時の処理を書く（クロージャ実装）
+                (action: UIAlertAction!) -> Void in
+            })
+            
+            okAlert.addAction(okAction)
+            
+            // ④ Alertを表示
+            self.present(okAlert, animated: true, completion: nil)
+            
+        })
+        // キャンセルボタン
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            //何もしない
+            print("Cancel")
+        })
+        
+        // ③ UIAlertControllerにActionを追加
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+        
+        // ④ Alertを表示
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    /// データを内部DBに保存する
+    func saveData(){
         ///テキストフィールドのテキストを一旦変数に格納
-        let date = datePickerField.text
-        let big3 = big3Label.text
-        let maxweight = maxWeightField.text
+        let date = self.datePickerField.text
+        let big3 = self.big3Label.text
+        let maxweight = self.maxWeightField.text
         
         let model = Big3DataModel()
         model.date = date!
         model.big3 = big3!
         model.maxweight = maxweight!
-
+        
         let dao = Big3Dao()
         dao.saveData(big3DataModel: model)
     }
-    
     
     
     /// segmentationタブクリックイベント
