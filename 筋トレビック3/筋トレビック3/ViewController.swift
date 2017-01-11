@@ -54,6 +54,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         //タイトルを選択された日付に返す
         dateLabel.text = dateManager.CalendarHeader(date: date,row:indexPath.row)
         
+        let big3Dao = Big3Dao()
+        //コレクションビューから識別子「CalendarCell」のセルを取得する
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCellViewController", for: indexPath) as! CalendarCellViewController
+
+        var model:Big3DataModel = Big3DataModel()
+        if cell.compLabel.text != "" {
+            model = big3Dao.getBig3DataModdel(date: dateManager.CalendarHeader(date: date,row:indexPath.row))
+        }
+        
+        print(model.big3)
+        
+        
     }
     
     /// セルの数

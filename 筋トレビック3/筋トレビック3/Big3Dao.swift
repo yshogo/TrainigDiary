@@ -14,6 +14,21 @@ import UIKit
 /// 内部DBに保存するクラス
 class Big3Dao{
     
+    var appDelegate:AppDelegate
+    var manageContext:NSManagedObjectContext
+    var fetchRequest:NSFetchRequest<NSFetchRequestResult>
+    
+    
+    /// コンストラクタ
+    init() {
+        /* Get ManagedObjectContext from AppDelegate */
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        manageContext = appDelegate.managedObjectContext
+        
+        /* Set search conditions */
+        fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Big3Entity")
+    }
+    
     /// データを保存する
     ///
     /// - Parameter big3DataModel: 保存するデータを格納したデータモデル
@@ -46,15 +61,8 @@ class Big3Dao{
     /// ビック3のデータを全件取得する
     func getTranscriptions () -> Array<Big3DataModel> {
         
-        /* Get ManagedObjectContext from AppDelegate */
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let manageContext = appDelegate.managedObjectContext
-        
-        /* Set search conditions */
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Big3Entity")
-        
-        
         var big3DataModelList = Array<Big3DataModel>()
+        
         /* Get result array from ManagedObjectContext */
         do {
             let fetchResults = try manageContext.fetch(fetchRequest)
@@ -67,11 +75,46 @@ class Big3Dao{
                 
                 big3DataModelList.append(model)
             }
+            
         } catch {
             print("想定外のエラー")
         }
         
         return big3DataModelList
+    }
+    
+    
+    /// 日付からオブジェクトを返す
+    ///
+    /// - Parameter date: 検索したいオブジェクト
+    /// - Returns: データオブジェクト(データが見つからない場合はからのデータオブジェクトを返す)
+    func getBig3DataModdel(date : String) -> Big3DataModel {
+        
+        
+        let model = Big3DataModel()
+        
+        /* Get result array from ManagedObjectContext */
+        do {
+            let fetchResults = try manageContext.fetch(fetchRequest)
+            
+            for var row in fetchResults {
+                
+                if (row as AnyObject).value(forKey: "date") as! String == date{
+                    
+                    
+                    model.date = (row as AnyObject).value(forKey: "date") as! String
+                    model.big3 = (row as AnyObject).value(forKey: "big3") as! String
+                    model.maxweight = (row as AnyObject).value(forKey: "maxweight") as! String
+                }
+            }
+            
+            //見つからない場合はnilを返す
+            return model
+            
+        } catch {
+            print("想定外のエラー")
+            return model
+        }
     }
 }
 
