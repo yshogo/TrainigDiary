@@ -58,14 +58,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         //コレクションビューから識別子「CalendarCell」のセルを取得する
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCellViewController", for: indexPath) as! CalendarCellViewController
 
+        //クリックされた日付にデータが存在するならそのデータを取得
         var model:Big3DataModel = Big3DataModel()
         if cell.compLabel.text != "" {
             model = big3Dao.getBig3DataModdel(date: dateManager.CalendarHeader(date: date,row:indexPath.row))
         }
         
-        print(model.big3)
-        
-        
+        //データが空でないときだけデータを表示する
+        if model.big3 != "" {
+            
+            // TODO ここにポップアップウインドウ(自作のアラート)を
+            //表示させます
+            print(model.big3)
+        }
     }
     
     /// セルの数
