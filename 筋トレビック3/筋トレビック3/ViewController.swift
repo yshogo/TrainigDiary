@@ -70,8 +70,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             // TODO ここにポップアップウインドウ(自作のアラート)を
             //表示させます
             print(model.big3)
+            
+            PopuoViewController.show(presentintViewController: self)
         }
+        
     }
+    
+ 
     
     /// セルの数
     ///

@@ -21,6 +21,8 @@
 		1995B7BF1E0E2F4D0075D7F3 /* _______3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995B7BE1E0E2F4D0075D7F3 /* _______3Tests.swift */; };
 		1995B7CA1E0E2F4D0075D7F3 /* _______3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995B7C91E0E2F4D0075D7F3 /* _______3UITests.swift */; };
 		1995B7D81E0EBF780075D7F3 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995B7D71E0EBF780075D7F3 /* PostViewController.swift */; };
+		19B58BC51E2B5B830003EE83 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B58BC41E2B5B830003EE83 /* Popup.storyboard */; };
+		19B58BC71E2B5E920003EE83 /* PopuoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B58BC61E2B5E920003EE83 /* PopuoViewController.swift */; };
 		19EA58F91E18FE3400F1CE5A /* CalendarCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EA58F81E18FE3400F1CE5A /* CalendarCellViewController.swift */; };
 		19EA58FC1E19042700F1CE5A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EA58FB1E19042700F1CE5A /* DateManager.swift */; };
 		19EA59021E1BCACA00F1CE5A /* TrainingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EA59011E1BCACA00F1CE5A /* TrainingType.swift */; };
@@ -64,6 +66,8 @@
 		1995B7C91E0E2F4D0075D7F3 /* _______3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_______3UITests.swift"; sourceTree = "<group>"; };
 		1995B7CB1E0E2F4D0075D7F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1995B7D71E0EBF780075D7F3 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		19B58BC41E2B5B830003EE83 /* Popup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		19B58BC61E2B5E920003EE83 /* PopuoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopuoViewController.swift; sourceTree = "<group>"; };
 		19EA58F81E18FE3400F1CE5A /* CalendarCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCellViewController.swift; sourceTree = "<group>"; };
 		19EA58FB1E19042700F1CE5A /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		19EA59011E1BCACA00F1CE5A /* TrainingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingType.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				1995B7D71E0EBF780075D7F3 /* PostViewController.swift */,
 				1995B7A81E0E2F4C0075D7F3 /* ViewController.swift */,
 				19EA58F81E18FE3400F1CE5A /* CalendarCellViewController.swift */,
+				19B58BC61E2B5E920003EE83 /* PopuoViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 			children = (
 				1995B7AA1E0E2F4C0075D7F3 /* Main.storyboard */,
 				1995B7B21E0E2F4C0075D7F3 /* LaunchScreen.storyboard */,
+				19B58BC41E2B5B830003EE83 /* Popup.storyboard */,
 			);
 			name = storyborad;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 				1995B7B41E0E2F4C0075D7F3 /* LaunchScreen.storyboard in Resources */,
 				1995B7B11E0E2F4C0075D7F3 /* Assets.xcassets in Resources */,
 				1995B7AC1E0E2F4C0075D7F3 /* Main.storyboard in Resources */,
+				19B58BC51E2B5B830003EE83 /* Popup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +377,7 @@
 				1919FCC21E14F8F90041FE64 /* Big3Entity+CoreDataClass.swift in Sources */,
 				1995B7A91E0E2F4C0075D7F3 /* ViewController.swift in Sources */,
 				1995B7A71E0E2F4C0075D7F3 /* AppDelegate.swift in Sources */,
+				19B58BC71E2B5E920003EE83 /* PopuoViewController.swift in Sources */,
 				1995B7AF1E0E2F4C0075D7F3 /* _______3.xcdatamodeld in Sources */,
 				1919FCCA1E154CEF0041FE64 /* Big3Dao.swift in Sources */,
 				19EA59021E1BCACA00F1CE5A /* TrainingType.swift in Sources */,
