@@ -67,11 +67,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         //データが空でないときだけデータを表示する
         if model.big3 != "" {
             
-            // TODO ここにポップアップウインドウ(自作のアラート)を
-            //表示させます
-            print(model.big3)
-            
-            PopuoViewController.show(presentintViewController: self)
+            //クリックされたデータを渡す
+            PopuoViewController.show(presentintViewController: self,model: model)
         }
         
     }
