@@ -15,7 +15,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     let dateManager = DateManager()
     let daysPerWeek: Int = 7
-    let cellMargin: CGFloat = 5.0
+    let cellMargin: CGFloat = 1.0
     var selectedDate = NSDate()
     var today: NSDate!
     
@@ -115,11 +115,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         //保存されている筋トレの種類によってセルのテキストを変える
         let trainingTypeEnum = trainingType.isTraingType(date: dateLabel)
         if trainingTypeEnum == TrainingTypeEnum.BENCH_PRESS{
-            cell.compLabel.text = "ベンチ"
+            cell.compLabel.text = "💪"
         }else if trainingTypeEnum == TrainingTypeEnum.SCWATTO{
-            cell.compLabel.text = "スクワット"
+            cell.compLabel.text = "💪"
         }else if trainingTypeEnum == TrainingTypeEnum.DEAD_LIFT{
-            cell.compLabel.text = "デットリスト"
+            cell.compLabel.text = "💪"
         }
         
         return cell
