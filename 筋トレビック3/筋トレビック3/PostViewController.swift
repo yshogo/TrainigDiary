@@ -93,7 +93,7 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     
     /// pickerの表示列
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return 3
     }
     
     /// pickerの表示個数
@@ -109,7 +109,12 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     /// pickerの選択時
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        maxWeightField.text = salarymanArr[row]
+        //compoment毎にデータを取得する
+        let compo1 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
+        let compo2 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 1), forComponent: 1)
+        let compo3 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 2), forComponent: 2)
+        
+        maxWeightField.text = "\(compo1!) \(compo2!) \(compo3!)"
     }
     
     /// DatePickerを生成
@@ -178,7 +183,28 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     /// - Parameter sender: <#sender description#>
     @IBAction func submid(_ sender: Any) {
         
-        showAlert()
+        if(big3Label.text != ""){
+            
+            showAlert()
+            
+        }e
+        
+        
+        lse{
+            
+           let alert: UIAlertController = UIAlertController(title: "エラー", message: "筋トレの種類を選択していません", preferredStyle:  UIAlertControllerStyle.alert)
+            // キャンセルボタン
+            let okAction: UIAlertAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.cancel, handler:{
+                // ボタンが押された時の処理を書く（クロージャ実装）
+                (action: UIAlertAction!) -> Void in
+                //何もしない
+                print("Cancel")
+            })
+            alert.addAction(okAction)
+            
+            present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     /// 投稿完了のアラートを出すアラートを出す
