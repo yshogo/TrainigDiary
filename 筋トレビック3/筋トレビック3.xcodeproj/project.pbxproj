@@ -12,6 +12,9 @@
 		1919FCC61E154AD10041FE64 /* Big3DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919FCC51E154AD10041FE64 /* Big3DataModel.swift */; };
 		1919FCCA1E154CEF0041FE64 /* Big3Dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919FCC91E154CEF0041FE64 /* Big3Dao.swift */; };
 		19295DC81E10120700963E5B /* DateToStringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19295DC71E10120700963E5B /* DateToStringUtil.swift */; };
+		196540651E34A1B50035C49F /* スクワット.png in Resources */ = {isa = PBXBuildFile; fileRef = 196540641E34A1B50035C49F /* スクワット.png */; };
+		196540671E34A1CF0035C49F /* デットリフト.png in Resources */ = {isa = PBXBuildFile; fileRef = 196540661E34A1CF0035C49F /* デットリフト.png */; };
+		196540691E34A2B20035C49F /* ベンチプレス.png in Resources */ = {isa = PBXBuildFile; fileRef = 196540681E34A2B20035C49F /* ベンチプレス.png */; };
 		1995B7A71E0E2F4C0075D7F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995B7A61E0E2F4C0075D7F3 /* AppDelegate.swift */; };
 		1995B7A91E0E2F4C0075D7F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995B7A81E0E2F4C0075D7F3 /* ViewController.swift */; };
 		1995B7AC1E0E2F4C0075D7F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1995B7AA1E0E2F4C0075D7F3 /* Main.storyboard */; };
@@ -51,6 +54,9 @@
 		1919FCC51E154AD10041FE64 /* Big3DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Big3DataModel.swift; sourceTree = "<group>"; };
 		1919FCC91E154CEF0041FE64 /* Big3Dao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Big3Dao.swift; sourceTree = "<group>"; };
 		19295DC71E10120700963E5B /* DateToStringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateToStringUtil.swift; sourceTree = "<group>"; };
+		196540641E34A1B50035C49F /* スクワット.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "スクワット.png"; sourceTree = "<group>"; };
+		196540661E34A1CF0035C49F /* デットリフト.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "デットリフト.png"; sourceTree = "<group>"; };
+		196540681E34A2B20035C49F /* ベンチプレス.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ベンチプレス.png"; sourceTree = "<group>"; };
 		1995B7A31E0E2F4C0075D7F3 /* 筋トレビック3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "筋トレビック3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1995B7A61E0E2F4C0075D7F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1995B7A81E0E2F4C0075D7F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 		1995B7A51E0E2F4C0075D7F3 /* 筋トレビック3 */ = {
 			isa = PBXGroup;
 			children = (
+				19F2142A1E33201E005E3BC4 /* image */,
 				19EA59001E1BC9C600F1CE5A /* Type */,
 				19EA58FA1E1902FA00F1CE5A /* manager */,
 				1919FCC81E154CD30041FE64 /* dao */,
@@ -196,6 +203,9 @@
 				1995B7B01E0E2F4C0075D7F3 /* Assets.xcassets */,
 				1995B7B51E0E2F4C0075D7F3 /* Info.plist */,
 				1995B7AD1E0E2F4C0075D7F3 /* _______3.xcdatamodeld */,
+				196540681E34A2B20035C49F /* ベンチプレス.png */,
+				196540641E34A1B50035C49F /* スクワット.png */,
+				196540661E34A1CF0035C49F /* デットリフト.png */,
 			);
 			path = "筋トレビック3";
 			sourceTree = "<group>";
@@ -232,6 +242,13 @@
 				19EA59011E1BCACA00F1CE5A /* TrainingType.swift */,
 			);
 			name = Type;
+			sourceTree = "<group>";
+		};
+		19F2142A1E33201E005E3BC4 /* image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,7 +363,10 @@
 			files = (
 				1995B7B41E0E2F4C0075D7F3 /* LaunchScreen.storyboard in Resources */,
 				1995B7B11E0E2F4C0075D7F3 /* Assets.xcassets in Resources */,
+				196540671E34A1CF0035C49F /* デットリフト.png in Resources */,
 				1995B7AC1E0E2F4C0075D7F3 /* Main.storyboard in Resources */,
+				196540651E34A1B50035C49F /* スクワット.png in Resources */,
+				196540691E34A2B20035C49F /* ベンチプレス.png in Resources */,
 				19B58BC51E2B5B830003EE83 /* Popup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

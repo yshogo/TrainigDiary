@@ -24,6 +24,8 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     /// 最大重量ボタン
     @IBOutlet weak var maxWeightField: UITextField!
     
+    /// ボタンを押したときに表示される画像
+    @IBOutlet weak var tarainingImage: UIImageView!
     
     /// 日付を扱うために使用する変数
     var myDatePicker:UIDatePicker!
@@ -277,6 +279,11 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     @IBAction func benchPressButton(_ sender: Any) {
         //ラベルの変更
         chengeBig3Label(text: self.benchPressButton.currentTitle!)
+        
+        
+        let benchImage = UIImage(named: "ベンチプレス.png")
+        tarainingImage.image = benchImage
+        
     }
     
     /// スクワットボタンクリックイベント
@@ -285,6 +292,9 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     @IBAction func sucwattoButton(_ sender: Any) {
         //ラベルの変更
         chengeBig3Label(text: self.scwattoButton.currentTitle!)
+        
+        let benchImage = UIImage(named: "スクワット.png")
+        tarainingImage.image = benchImage
     }
 
     /// デットリフトボタンクリックイベント
@@ -293,5 +303,8 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     @IBAction func deadLiftButton(_ sender: Any) {
         //ラベルの変更
         chengeBig3Label(text: self.deadLiftButton.currentTitle!)
+        
+        let benchImage = UIImage(named: "デットリフト.png")
+        tarainingImage.image = benchImage
     }
 }
