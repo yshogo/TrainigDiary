@@ -120,6 +120,10 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
         myDatePicker.addTarget(self, action: #selector(PostViewController.changedDateEvent), for: UIControlEvents.valueChanged)
         //datePickerの種類をセット(時間なども設定可能)
         myDatePicker.datePickerMode = UIDatePickerMode.date
+        
+        //datepickerに範囲指定
+        myDatePicker.maximumDate = NSDate() as Date
+        
         //テキストフィールドに追加
         datePickerField.inputView = myDatePicker
     }
