@@ -187,10 +187,7 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
             
             showAlert()
             
-        }e
-        
-        
-        lse{
+        }else{
             
            let alert: UIAlertController = UIAlertController(title: "エラー", message: "筋トレの種類を選択していません", preferredStyle:  UIAlertControllerStyle.alert)
             // キャンセルボタン
