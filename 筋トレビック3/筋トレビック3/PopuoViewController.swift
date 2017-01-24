@@ -15,8 +15,8 @@ class PopuoViewController : UIViewController{
 
     var trainingType = ""
     var maxWeight = ""
-    
-    
+    var model:Big3DataModel? = Big3DataModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +31,23 @@ class PopuoViewController : UIViewController{
         
         self.dismiss(animated: false, completion: nil)
     }
+    
+    
+    /// 削除ボタンのクリックイベント
+    ///
+    /// - Parameter sender: <#sender description#>
+    @IBAction func deleteButton(_ sender: Any){
+        
+        //その要素を削除する
+        let dao = Big3Dao()
+        dao.deleteBig3DataModel(model: model!)
+    }
+    
+    /// 編集ボタンのクリックイベント
+    ///
+    /// - Parameter sender: <#sender description#>
+    @IBAction func editButton(_ sender: Any) {
+    }
 }
 
 
@@ -39,6 +56,7 @@ extension PopuoViewController {
     class func show(presentintViewController vc: UIViewController, model:Big3DataModel) {
         guard let alert = UIStoryboard(name: "Popup", bundle: nil).instantiateInitialViewController() as? PopuoViewController else { return }
         
+        alert.model = model
         alert.trainingType = model.big3
         alert.maxWeight = model.maxweight
         

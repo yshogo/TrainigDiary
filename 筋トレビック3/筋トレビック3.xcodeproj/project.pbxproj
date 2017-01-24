@@ -203,9 +203,6 @@
 				1995B7B01E0E2F4C0075D7F3 /* Assets.xcassets */,
 				1995B7B51E0E2F4C0075D7F3 /* Info.plist */,
 				1995B7AD1E0E2F4C0075D7F3 /* _______3.xcdatamodeld */,
-				196540681E34A2B20035C49F /* ベンチプレス.png */,
-				196540641E34A1B50035C49F /* スクワット.png */,
-				196540661E34A1CF0035C49F /* デットリフト.png */,
 			);
 			path = "筋トレビック3";
 			sourceTree = "<group>";
@@ -247,6 +244,9 @@
 		19F2142A1E33201E005E3BC4 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				196540681E34A2B20035C49F /* ベンチプレス.png */,
+				196540641E34A1B50035C49F /* スクワット.png */,
+				196540661E34A1CF0035C49F /* デットリフト.png */,
 			);
 			name = image;
 			sourceTree = "<group>";

@@ -84,6 +84,37 @@ class Big3Dao{
     }
     
     
+    /// 同じ日付の要素のデータを削除する
+    ///
+    /// - Parameter model: <#model description#>
+    public func deleteBig3DataModel(model: Big3DataModel){
+        
+        do {
+            let fetchResults = try manageContext.fetch(fetchRequest)
+            
+            for var row in fetchResults {
+                
+                if (row as AnyObject).value(forKey: "date") as! String == model.date{
+                    
+                    //データを削除する
+                    let recode = row as! NSManagedObject
+                    manageContext.delete(recode)
+                }
+                
+                //削除後データを登録し直す
+                try manageContext.save()
+            }
+            
+            print("削除完了")
+            
+        } catch {
+            
+            print("削除に失敗したよ")
+        }
+        
+    }
+    
+    
     /// 日付からオブジェクトを返す
     ///
     /// - Parameter date: 検索したいオブジェクト
@@ -100,7 +131,6 @@ class Big3Dao{
             for var row in fetchResults {
                 
                 if (row as AnyObject).value(forKey: "date") as! String == date{
-                    
                     
                     model.date = (row as AnyObject).value(forKey: "date") as! String
                     model.big3 = (row as AnyObject).value(forKey: "big3") as! String
