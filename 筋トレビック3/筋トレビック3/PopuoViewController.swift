@@ -47,6 +47,13 @@ class PopuoViewController : UIViewController{
     ///
     /// - Parameter sender: <#sender description#>
     @IBAction func editButton(_ sender: Any) {
+        
+        //編集画面に画面遷移
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let next = storyboard.instantiateViewController(withIdentifier: "PostViewController") as? PostViewController
+        
+        present(next!,animated:false, completion:nil)
+        
     }
 }
 

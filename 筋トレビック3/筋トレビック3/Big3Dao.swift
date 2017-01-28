@@ -34,13 +34,9 @@ class Big3Dao{
     /// - Parameter big3DataModel: 保存するデータを格納したデータモデル
     func saveData(big3DataModel:Big3DataModel){
         
-        /* Get ManagedObjectContext from AppDelegate */
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext: NSManagedObjectContext = appDelegate.managedObjectContext
-        
         /* Create new ManagedObject */
-        let entity = NSEntityDescription.entity(forEntityName: "Big3Entity", in: managedContext)
-        let transc = NSManagedObject(entity: entity!, insertInto: managedContext)
+        let entity = NSEntityDescription.entity(forEntityName: "Big3Entity", in: manageContext)
+        let transc = NSManagedObject(entity: entity!, insertInto: manageContext)
         
         //set the entity values
         transc.setValue(big3DataModel.date, forKey: "date")
@@ -49,7 +45,7 @@ class Big3Dao{
         
         //save the object
         do {
-            try managedContext.save()
+            try manageContext.save()
             print("保存されたよー!")
         } catch let error as NSError  {
             print("保存に失敗しました \(error), \(error.userInfo)")
@@ -113,7 +109,6 @@ class Big3Dao{
         }
         
     }
-    
     
     /// 日付からオブジェクトを返す
     ///
