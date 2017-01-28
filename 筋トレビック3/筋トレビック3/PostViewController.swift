@@ -36,6 +36,11 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     var numberToolbar:UIToolbar = UIToolbar()
     var salarymanArr = ["1","2","3","4","5","6","7","8","9","0"]
     
+    //画面推移されたときに値を受け取る変数
+    var trasitonDate:String = ""
+    var trasitonWeight:String = ""
+    var trasitonbig3:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,8 +49,18 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
         maxWeightField.delegate = self
         
         //テキストをDate型に変換してViewに追加する記述
-        datePickerField.placeholder = DateToStringUtil.dateToString(date: NSDate())
-        datePickerField.text = DateToStringUtil.dateToString(date: NSDate())
+        if trasitonDate != ""{
+            
+            //ポップアップ画面の編集ボタンが押され画面推移したときはその値を表示する
+            datePickerField.placeholder = trasitonDate
+            datePickerField.text = trasitonDate
+            
+            maxWeightField.text = trasitonWeight
+        }else {
+            datePickerField.placeholder = DateToStringUtil.dateToString(date: NSDate())
+            datePickerField.text = DateToStringUtil.dateToString(date: NSDate())
+        }
+        
         self.view.addSubview(datePickerField)
         
         //datepikerの生成

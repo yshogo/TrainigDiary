@@ -52,8 +52,11 @@ class PopuoViewController : UIViewController{
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let next = storyboard.instantiateViewController(withIdentifier: "PostViewController") as? PostViewController
         
-        present(next!,animated:false, completion:nil)
+        next?.trasitonDate = (model?.date)!
+        next?.trasitonWeight = (model?.maxweight)!
         
+        
+        present(next!,animated:false, completion:nil)
     }
 }
 
