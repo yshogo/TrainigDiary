@@ -38,9 +38,30 @@ class PopuoViewController : UIViewController{
     /// - Parameter sender: <#sender description#>
     @IBAction func deleteButton(_ sender: Any){
         
-        //その要素を削除する
-        let dao = Big3Dao()
-        dao.deleteBig3DataModel(model: model!)
+        let alert:UIAlertController = UIAlertController(title: "削除確認", message: "削除してもよろしいですか", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction : UIAlertAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: {
+            
+            (action:UIAlertAction!) -> Void in
+            
+            //その要素を削除する
+            let dao = Big3Dao()
+            dao.deleteBig3DataModel(model: self.model!)
+        })
+        
+        
+        // キャンセルボタン
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            //何もしない
+            print("Cancel")
+        })
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        present(alert,animated: true, completion: nil)
     }
     
     /// 編集ボタンのクリックイベント

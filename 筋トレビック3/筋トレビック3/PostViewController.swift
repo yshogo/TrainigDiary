@@ -55,6 +55,31 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
             datePickerField.placeholder = trasitonDate
             datePickerField.text = trasitonDate
             
+            //筋トレの種類をセットする
+            switch trasitonbig3 {
+            case "ベンチプレス":
+                
+                //ラベルの変更
+                chengeBig3Label(text: trasitonbig3)
+                let benchImage = UIImage(named: "ベンチプレス.png")
+                tarainingImage.image = benchImage
+                
+            case "スクワット":
+                
+                //ラベルの変更
+                chengeBig3Label(text: trasitonbig3)
+                let benchImage = UIImage(named: "スクワット.png")
+                tarainingImage.image = benchImage
+            default:
+                
+                //ラベルの変更
+                chengeBig3Label(text: trasitonbig3)
+                let benchImage = UIImage(named: "デットリフト.png")
+                tarainingImage.image = benchImage
+                
+            }
+            
+            //最大重量の設定
             maxWeightField.text = trasitonWeight
         }else {
             datePickerField.placeholder = DateToStringUtil.dateToString(date: NSDate())
