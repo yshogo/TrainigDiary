@@ -75,7 +75,7 @@ class PopuoViewController : UIViewController{
         
         next?.trasitonDate = (model?.date)!
         next?.trasitonWeight = (model?.maxweight)!
-        
+        next?.trasitionbig3Label = (model?.big3)!
         
         present(next!,animated:false, completion:nil)
     }

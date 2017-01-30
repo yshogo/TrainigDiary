@@ -65,7 +65,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         
         //データが空でないときだけデータを表示する
-        if model.big3 != "" {
+        if model.big3 != "" && cell.compLabel.text != nil{
             
             //クリックされたデータを渡す
             PopuoViewController.show(presentintViewController: self,model: model)
@@ -120,6 +120,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             cell.compLabel.text = "💪"
         }else if trainingTypeEnum == TrainingTypeEnum.DEAD_LIFT{
             cell.compLabel.text = "💪"
+        }
+        
+        //別の月が同じ月だと判定されてしまう不具合修正
+        if indexPath.row < 7 && ((cell.textLabel.text)?.characters.count)! >= 2{
+            cell.compLabel.text = ""
+        }else if indexPath.row >= 30 && ((cell.textLabel.text)?.characters.count)! <= 1{
+            cell.compLabel.text = ""
         }
         
         return cell

@@ -40,6 +40,8 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     var trasitonDate:String = ""
     var trasitonWeight:String = ""
     var trasitonbig3:String = ""
+    var trasitionbig3Label:String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,20 +62,20 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
             case "ベンチプレス":
                 
                 //ラベルの変更
-                chengeBig3Label(text: trasitonbig3)
+                chengeBig3Label(text: trasitionbig3Label)
                 let benchImage = UIImage(named: "ベンチプレス.png")
                 tarainingImage.image = benchImage
                 
             case "スクワット":
                 
                 //ラベルの変更
-                chengeBig3Label(text: trasitonbig3)
+                chengeBig3Label(text: trasitionbig3Label)
                 let benchImage = UIImage(named: "スクワット.png")
                 tarainingImage.image = benchImage
             default:
                 
                 //ラベルの変更
-                chengeBig3Label(text: trasitonbig3)
+                chengeBig3Label(text: trasitionbig3Label)
                 let benchImage = UIImage(named: "デットリフト.png")
                 tarainingImage.image = benchImage
                 
