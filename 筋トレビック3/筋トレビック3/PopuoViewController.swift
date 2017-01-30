@@ -60,8 +60,6 @@ class PopuoViewController : UIViewController{
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler:{
             // ボタンが押された時の処理を書く（クロージャ実装）
             (action: UIAlertAction!) -> Void in
-            //何もしない
-            print("Cancel")
         })
         
         alert.addAction(okAction)

@@ -236,8 +236,6 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
             let okAction: UIAlertAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.cancel, handler:{
                 // ボタンが押された時の処理を書く（クロージャ実装）
                 (action: UIAlertAction!) -> Void in
-                //何もしない
-                print("Cancel")
             })
             alert.addAction(okAction)
             
@@ -249,15 +247,8 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
     /// 投稿完了のアラートを出すアラートを出す
     func showAlert(){
         
-        // ① UIAlertControllerクラスのインスタンスを生成
-        // タイトル, メッセージ, Alertのスタイルを指定する
-        // 第3引数のpreferredStyleでアラートの表示スタイルを指定する
         let alert: UIAlertController = UIAlertController(title: "投稿確認", message: "保存してもいいですか？", preferredStyle:  UIAlertControllerStyle.alert)
         
-        // ② Actionの設定
-        // Action初期化時にタイトル, スタイル, 押された時に実行されるハンドラを指定する
-        // 第3引数のUIAlertActionStyleでボタンのスタイルを指定する
-        // OKボタン
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
             // ボタンが押された時の処理を書く（クロージャ実装）
             (action: UIAlertAction!) -> Void in
@@ -267,18 +258,17 @@ class PostViewController: UIViewController ,UITextFieldDelegate , UIPickerViewDe
             //投稿されたあらーとを出す
             let okAlert: UIAlertController = UIAlertController(title: "保存完了しました。", message: "", preferredStyle:  UIAlertControllerStyle.alert)
             
-            // ② Actionの設定
-            // Action初期化時にタイトル, スタイル, 押された時に実行されるハンドラを指定する
-            // 第3引数のUIAlertActionStyleでボタンのスタイルを指定する
-            // OKボタン
             let okAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
                 // ボタンが押された時の処理を書く（クロージャ実装）
                 (action: UIAlertAction!) -> Void in
+                
+                let viewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController")
+                
+                self.present(viewController!,animated: false, completion: nil)
             })
             
             okAlert.addAction(okAction)
             
-            // ④ Alertを表示
             self.present(okAlert, animated: true, completion: nil)
             
         })
