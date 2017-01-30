@@ -62,6 +62,17 @@ class PopuoViewController : UIViewController{
         alert.addAction(cancelAction)
         
         present(alert,animated: true, completion: nil)
+        
+        
+        //カレンダー画面に遷移
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let next = storyboard.instantiateInitialViewController() as? PostViewController
+        
+        next?.trasitonDate = (model?.date)!
+        next?.trasitonWeight = (model?.maxweight)!
+        next?.trasitionbig3Label = (model?.big3)!
+        
+        present(next!,animated:false, completion:nil)
     }
     
     /// 編集ボタンのクリックイベント

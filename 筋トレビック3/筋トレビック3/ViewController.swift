@@ -62,15 +62,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         var model:Big3DataModel = Big3DataModel()
         if cell.compLabel.text != "" {
             model = big3Dao.getBig3DataModdel(date: dateManager.CalendarHeader(date: date,row:indexPath.row))
-        }
-        
-        //データが空でないときだけデータを表示する
-        if model.big3 != "" && cell.compLabel.text != nil{
             
-            //クリックされたデータを渡す
-            PopuoViewController.show(presentintViewController: self,model: model)
+            //データが空でないときだけデータを表示する
+            if model.big3 != ""{
+                if date.characters.count >= 2 && indexPath.row < 7{
+                    //なにもしない
+                }else if(date.characters.count <= 1 && indexPath.row >= 30){
+                    //なにもしない
+                }else{
+                    //クリックされたデータを渡す
+                    PopuoViewController.show(presentintViewController: self,model: model)
+                }
+                
+            }
         }
-        
+
     }
     
  
