@@ -2,8 +2,8 @@
 //  TrainingType.swift
 //  筋トレビック3
 //
-//  Created by ShogoYamada on 2017/01/03.
-//  Copyright © 2017年 山田尚吾. All rights reserved.
+//  Created by  on 2017/01/03.
+//  Copyright © 2017年 . All rights reserved.
 //
 
 import Foundation

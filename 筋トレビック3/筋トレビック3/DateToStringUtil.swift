@@ -2,8 +2,8 @@
 //  DateToStringUtil.swift
 //  筋トレビック3
 //
-//  Created by ShogoYamada on 2016/12/25.
-//  Copyright © 2016年 山田尚吾. All rights reserved.
+//  Created by  on 2016/12/25.
+//  Copyright © 2016年 . All rights reserved.
 //
 
 import Foundation
